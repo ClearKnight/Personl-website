@@ -488,7 +488,7 @@ export default function HomePageClient({
             variants={stagger}
           >
             <div className="flex items-center gap-4 mb-16 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-600 font-mono text-xs tracking-tighter">04.</motion.span>
+              <motion.span variants={fadeIn} className="text-zinc-500 font-mono text-xs tracking-tighter">04.</motion.span>
               <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">About / <span className="font-art-cn not-italic">关于我</span></motion.h2>
             </div>
 

@@ -73,7 +73,7 @@ export const mdxComponents = {
   Card:({ title, children }: { title: string, children: React.ReactNode }) => (
     <div className="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 group">
       <h4 className="text-sm font-serif italic mb-2 text-white/90">{title}</h4>
-      <div className="text-xs text-zinc-300 leading-relaxed">{children}</div>
+      <div className="text-xs text-zinc-200 leading-relaxed opacity-80">{children}</div>
     </div>
   ),
 };

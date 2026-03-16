@@ -117,6 +117,24 @@ h1, h2, h3, h4 {
   --tw-prose-th-borders: #d4d4d4;
 }
 
+.prose-invert {
+  --tw-prose-body: #d4d4d4;
+  --tw-prose-headings: #fff;
+  --tw-prose-links: #fff;
+  --tw-prose-bold: #fff;
+  --tw-prose-counters: #a3a3a3;
+  --tw-prose-bullets: #525252;
+  --tw-prose-hr: #262626;
+  --tw-prose-quotes: #d4d4d4;
+  --tw-prose-quote-borders: #404040;
+  --tw-prose-captions: #a3a3a3;
+  --tw-prose-code: #fff;
+  --tw-prose-pre-code: #d4d4d4;
+  --tw-prose-pre-bg: rgba(0, 0, 0, 0.5);
+  --tw-prose-th-borders: #404040;
+  --tw-prose-td-borders: #262626;
+}
+
 .prose h1, .prose h2, .prose h3 {
   font-family: var(--font-serif);
   font-style: italic;
