@@ -265,7 +265,7 @@ export default function HomePageClient({
             >
               <p className="text-zinc-400 font-art italic text-lg md:text-xl tracking-wide">Clear 晨曦</p>
               <p className="text-zinc-400 font-light leading-relaxed text-sm md:text-lg max-w-sm opacity-80">
-                在理性与感性之间，捕捉数字世界的晨曦。
+                于逻辑与灵犀交汇处，寻一抹数字晨曦。
               </p>
             </motion.div>
             
@@ -305,8 +305,8 @@ export default function HomePageClient({
 
         {/* Hero Footer */}
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-center text-[9px] tracking-[0.4em] text-zinc-500 uppercase">
-          <motion.span variants={fadeIn}>Homepage 2024-26</motion.span>
-          <motion.span variants={fadeIn}>©CLEAR 2024</motion.span>
+          <motion.span variants={fadeIn}>Homepage {new Date().getFullYear()}</motion.span>
+          <motion.span variants={fadeIn}>©CLEAR {new Date().getFullYear()}</motion.span>
         </div>
       </motion.section>
 
@@ -546,13 +546,30 @@ export default function HomePageClient({
             </div>
             
             <div className="mt-32 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-zinc-900/50 pt-12">
-              <motion.p variants={fadeIn} className="text-[9px] font-sans tracking-[0.4em] uppercase text-zinc-600">
-                DESIGNED WITH INTENT & BUILT WITH CODE. © 2024
+              <motion.p
+                variants={fadeIn}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 1.2 }}
+                className="text-[9px] font-sans tracking-[0.4em] uppercase text-zinc-600"
+              >
+              CONCEIVED IN THOUGHT & REALIZED IN DAWN. © 2026
               </motion.p>
-              <div className="flex gap-8 text-[9px] font-sans tracking-[0.2em] uppercase text-zinc-500">
+
+              <motion.div
+                variants={fadeIn}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 1.2 }}
+                className="flex gap-8 text-[9px] font-sans tracking-[0.2em] uppercase text-zinc-500"
+              >
                 <span className="opacity-50">Local Time</span>
-                <span>{mounted ? new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }) : "--:--"} HGH</span>
-              </div>
+                <span>
+                {mounted ? new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }) : "--:--"} HGH
+              </span>
+              </motion.div>
             </div>
           </motion.footer>
         </div>
