@@ -53,15 +53,15 @@ export default async function BlogPostPage({
         {/* Navigation back */}
         <Link 
           href="/#blog" 
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-black transition-colors mb-12 group"
+          className="inline-flex items-center gap-2 text-black/50 hover:text-black transition-colors mb-12 group"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-xs uppercase tracking-widest font-mono">Back to list</span>
+          <span className="text-sm uppercase tracking-widest font-mono">Back to list</span>
         </Link>
 
         {/* Header Section */}
         <header className="mb-16">
-          <div className="flex flex-wrap items-center gap-6 mb-8 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
+          <div className="flex flex-wrap items-center gap-6 mb-8 text-[11px] font-mono text-black/40 uppercase tracking-widest">
             <div className="flex items-center gap-2">
               <Calendar size={12} />
               <span>{post.date}</span>
@@ -88,7 +88,7 @@ export default async function BlogPostPage({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-32 py-16 border-y border-zinc-100">
           {prev ? (
             <Link href={`/blog/${prev.slug}`} className="group space-y-4">
-              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest block">Previous Article</span>
+              <span className="text-[11px] font-mono text-black/40 uppercase tracking-widest block">Previous Article</span>
               <div className="flex items-center gap-4">
                 <ArrowLeft size={20} className="text-zinc-300 group-hover:-translate-x-2 transition-transform" />
                 <h4 className="text-xl font-serif italic group-hover:underline decoration-zinc-200 underline-offset-8">{prev.title}</h4>
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
           
           {next ? (
             <Link href={`/blog/${next.slug}`} className="group space-y-4 text-right">
-              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest block">Next Article</span>
+              <span className="text-[11px] font-mono text-black/40 uppercase tracking-widest block">Next Article</span>
               <div className="flex items-center gap-4 justify-end">
                 <h4 className="text-xl font-serif italic group-hover:underline decoration-zinc-200 underline-offset-8">{next.title}</h4>
                 <ArrowRight size={20} className="text-zinc-300 group-hover:translate-x-2 transition-transform" />
@@ -109,7 +109,7 @@ export default async function BlogPostPage({
 
         {/* Footer Navigation */}
         <footer className="mt-16 pb-16">
-          <div className="flex justify-between items-center text-xs text-zinc-400 font-mono uppercase tracking-[0.2em]">
+          <div className="flex justify-between items-center text-sm text-black/50 font-mono uppercase tracking-[0.2em]">
             <span>© CLEAR 2024</span>
             <Link href="/" className="hover:text-black transition-colors">Home</Link>
           </div>

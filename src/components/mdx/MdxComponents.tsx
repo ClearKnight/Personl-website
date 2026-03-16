@@ -93,10 +93,10 @@ export const mdxComponents = {
 
   CoreItem: ({ number, title, children }: { number: string, title: string, children: React.ReactNode }) => (
     <div className="space-y-4">
-      <div className="text-[10px] font-mono text-white/70 uppercase tracking-widest">
+      <div className="text-[11px] font-mono text-white/80 uppercase tracking-widest">
         ({number}) {title}
       </div>
-      <div className="text-[13px] text-white/90 leading-relaxed font-light">
+      <div className="text-sm text-white/90 leading-relaxed font-light">
         {children}
       </div>
     </div>

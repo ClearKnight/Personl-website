@@ -85,7 +85,7 @@ const PostcardCard = ({
         </div>
       </motion.div>
       
-      <div className="absolute -right-4 -bottom-4 bg-[#FF7A00] text-white text-[10px] font-mono px-3 py-1 rounded-full shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-500 uppercase tracking-widest z-20">
+      <div className="absolute -right-4 -bottom-4 bg-[#FF7A00] text-white text-[11px] font-mono px-3 py-1.5 rounded-full shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-500 uppercase tracking-widest z-20">
         {label}
       </div>
     </motion.div>
@@ -238,7 +238,7 @@ export default function HomePageClient({
           >
             Clear <span className="font-art-cn not-italic text-sm md:text-base tracking-[0.3em] ml-2 md:ml-3 transition-all group-hover:italic group-hover:ml-4 opacity-70 group-hover:opacity-100">晨曦</span>
           </motion.div>
-          <motion.div variants={fadeIn} className="flex gap-4 md:gap-8 text-[10px] md:text-xs text-zinc-300 font-light uppercase tracking-widest">
+          <motion.div variants={fadeIn} className="flex gap-4 md:gap-8 text-[11px] md:text-sm text-white/90 font-light uppercase tracking-widest">
             <a href="#works" className="hover:text-white transition-colors py-2">Works</a>
             <a href="#core" className="hover:text-white transition-colors py-2">Core</a>
             <a href="#blog" className="hover:text-white transition-colors py-2">Blog</a>
@@ -305,7 +305,7 @@ export default function HomePageClient({
         </div>
 
         {/* Hero Footer */}
-        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-center text-[9px] tracking-[0.4em] text-zinc-500 uppercase">
+        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-center text-[10px] tracking-[0.4em] text-white/80 uppercase">
           <motion.span variants={fadeIn}>Homepage {new Date().getFullYear()}</motion.span>
           <motion.span variants={fadeIn}>©CLEAR {new Date().getFullYear()}</motion.span>
         </div>
@@ -321,7 +321,7 @@ export default function HomePageClient({
             variants={stagger}
           >
             <div className="flex items-center gap-4 mb-24 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-400 font-mono text-xs tracking-tighter">01.</motion.span>
+              <motion.span variants={fadeIn} className="text-black font-mono text-sm tracking-tighter">01.</motion.span>
               <motion.h2 variants={fadeIn} className="text-4xl font-serif tracking-tight italic">Works / <span className="font-art-cn not-italic">项目作品</span></motion.h2>
             </div>
 
@@ -335,8 +335,8 @@ export default function HomePageClient({
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <p className="text-[10px] text-zinc-400 uppercase tracking-widest font-medium">{work.category}</p>
-                        <span className="text-[9px] font-mono text-zinc-300">{work.year}</span>
+                        <p className="text-[11px] text-black/60 uppercase tracking-widest font-medium">{work.category}</p>
+                        <span className="text-[10px] font-mono text-black/40">{work.year}</span>
                       </div>
                       <h3 className="text-lg font-serif tracking-tight group-hover:italic transition-all duration-500">{work.title}</h3>
                     </div>
@@ -358,7 +358,7 @@ export default function HomePageClient({
             variants={stagger}
           >
             <div className="flex items-center gap-4 mb-20 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-500 font-mono text-xs tracking-tighter">02.</motion.span>
+              <motion.span variants={fadeIn} className="text-white/90 font-mono text-sm tracking-tighter">02.</motion.span>
               <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">Core / <span className="font-art-cn not-italic">核心身份</span></motion.h2>
             </div>
 
@@ -379,7 +379,7 @@ export default function HomePageClient({
             variants={stagger}
           >
             <div className="flex items-center gap-4 mb-16 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-400 font-mono text-xs tracking-tighter">03.</motion.span>
+              <motion.span variants={fadeIn} className="text-black font-mono text-sm tracking-tighter">03.</motion.span>
               <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">Blog / <span className="font-art-cn not-italic">思考札记</span></motion.h2>
             </div>
 
@@ -389,12 +389,12 @@ export default function HomePageClient({
                   <motion.div variants={fadeIn} className="flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-zinc-200/50 cursor-none relative overflow-hidden">
                     <div className="absolute inset-0 bg-zinc-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 -z-10" />
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 relative z-10 px-4 md:px-0 transition-transform duration-500 group-hover:translate-x-4">
-                      <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">{post.date}</span>
+                      <span className="text-[11px] font-mono text-black/40 uppercase tracking-widest">{post.date}</span>
                       <h3 className="text-xl font-serif group-hover:italic transition-all duration-500">{post.title}</h3>
                     </div>
-                    <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs text-zinc-300 font-light px-4 md:px-0 transition-all duration-500 group-hover:text-black group-hover:-translate-x-4">
+                    <div className="mt-4 md:mt-0 flex items-center gap-2 text-sm text-black/30 font-light px-4 md:px-0 transition-all duration-500 group-hover:text-black group-hover:-translate-x-4">
                       <span>{post.readTime} read</span>
-                      <ArrowUpRight size={12} className="group-hover:rotate-45 transition-transform" />
+                      <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform" />
                     </div>
                   </motion.div>
                 </Link>
@@ -429,7 +429,7 @@ export default function HomePageClient({
                       key={idx} 
                       variants={fadeIn}
                       whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
-                      className="px-4 py-1 bg-white border border-zinc-200 rounded-full text-[10px] font-mono uppercase tracking-widest text-zinc-500 transition-colors duration-300"
+                      className="px-4 py-1 bg-white border border-zinc-200 rounded-full text-[11px] font-mono uppercase tracking-widest text-black/60 transition-colors duration-300"
                     >
                       {tech}
                     </motion.span>
@@ -465,7 +465,7 @@ export default function HomePageClient({
                 className="space-y-8"
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-zinc-400 font-mono text-xs tracking-tighter">{moment.id}</span>
+                  <span className="text-black/40 font-mono text-sm tracking-tighter">{moment.id}</span>
                   <h2 className="text-3xl font-serif tracking-tight italic">
                     {moment.title.split(' / ')[0]} / <span className="font-art-cn not-italic">{moment.title.split(' / ')[1]}</span>
                   </h2>
@@ -476,12 +476,12 @@ export default function HomePageClient({
                 </p>
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Location</span>
+                    <span className="text-[11px] font-mono text-black/40 uppercase tracking-widest">Location</span>
                     <span className="text-sm font-serif italic">{moment.location}</span>
                   </div>
                   <div className="w-[1px] h-8 bg-zinc-200" />
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Event</span>
+                    <span className="text-[11px] font-mono text-black/40 uppercase tracking-widest">Event</span>
                     <span className="text-sm font-serif italic">{moment.event}</span>
                   </div>
                 </div>
@@ -513,12 +513,12 @@ export default function HomePageClient({
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
               <div className="space-y-6">
-                <motion.h3 variants={fadeIn} className="text-xl font-serif italic tracking-tight">Let's build something beautiful.</motion.h3>
+                <motion.h3 variants={fadeIn} className="text-xl font-serif italic tracking-tight text-white/90">Let's build something beautiful.</motion.h3>
                 <motion.div variants={fadeIn}>
                   <MagneticButton>
                     <a 
                       href="mailto:jchenxi13@gmail.com" 
-                      className="text-2xl md:text-4xl font-serif border-b border-zinc-800 pb-2 hover:border-white transition-all inline-block group"
+                      className="text-2xl md:text-4xl font-serif border-b border-zinc-800 pb-2 hover:border-white transition-all inline-block group text-white/90"
                     >
                       jchenxi13@gmail.com
                     </a>
@@ -526,7 +526,7 @@ export default function HomePageClient({
                 </motion.div>
               </div>
               
-              <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400">
+              <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-[11px] font-mono tracking-[0.2em] uppercase text-white/90">
                 {[
                   { name: "WeChat", onClick: () => setShowWeChat(true), icon: MessageCircle },
                   { name: "Github", href: "https://github.com/ClearKnight", icon: Github },
@@ -557,7 +557,7 @@ export default function HomePageClient({
                 whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 1.2 }}
-                className="text-[9px] font-sans tracking-[0.4em] uppercase text-zinc-600"
+                className="text-[10px] font-sans tracking-[0.4em] uppercase text-white/60"
               >
               CONCEIVED IN THOUGHT & REALIZED IN DAWN. © 2026
               </motion.p>
@@ -568,7 +568,7 @@ export default function HomePageClient({
                 whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 1.2 }}
-                className="flex gap-8 text-[9px] font-sans tracking-[0.2em] uppercase text-zinc-500"
+                className="flex gap-8 text-[10px] font-sans tracking-[0.2em] uppercase text-white/80"
               >
                 <span className="opacity-50">Local Time</span>
                 <span>
