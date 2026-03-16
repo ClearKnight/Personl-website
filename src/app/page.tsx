@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/blog";
 import { getAllWorks } from "@/lib/works";
-import AboutSection from "@/components/AboutSection";
+import CoreSection from "@/components/CoreSection";
 import HomePageClient from "./HomePageClient";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
   
   return (
     <HomePageClient posts={posts} works={works}>
-      <AboutSection />
+      <CoreSection />
     </HomePageClient>
   );
 }

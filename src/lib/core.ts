@@ -2,23 +2,23 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const ABOUT_PATH = path.join(process.cwd(), "content/about/index.mdx");
+const CORE_PATH = path.join(process.cwd(), "content/core/index.mdx");
 
-export interface AboutContent {
+export interface CoreContent {
   title: string;
   description: string;
   content: string;
 }
 
-export function getAboutContent(): AboutContent {
-  if (!fs.existsSync(ABOUT_PATH)) {
+export function getCoreContent(): CoreContent {
+  if (!fs.existsSync(CORE_PATH)) {
     return {
-      title: "About Me",
+      title: "Core / 核心身份",
       description: "",
       content: "",
     };
   }
-  const fileContents = fs.readFileSync(ABOUT_PATH, "utf8");
+  const fileContents = fs.readFileSync(CORE_PATH, "utf8");
   const { data, content } = matter(fileContents);
 
   return {

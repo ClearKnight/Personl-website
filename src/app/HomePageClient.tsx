@@ -240,8 +240,9 @@ export default function HomePageClient({
           </motion.div>
           <motion.div variants={fadeIn} className="flex gap-4 md:gap-8 text-[10px] md:text-xs text-zinc-300 font-light uppercase tracking-widest">
             <a href="#works" className="hover:text-white transition-colors py-2">Works</a>
+            <a href="#core" className="hover:text-white transition-colors py-2">Core</a>
             <a href="#blog" className="hover:text-white transition-colors py-2">Blog</a>
-            <a href="#about" className="hover:text-white transition-colors py-2">About</a>
+            <a href="#special" className="hover:text-white transition-colors py-2">Special</a>
             <a href="#contact" className="hover:text-white transition-colors py-2">Contact</a>
           </motion.div>
         </nav>
@@ -347,8 +348,29 @@ export default function HomePageClient({
         </div>
       </div>
 
-      {/* 02. Blog Section - Off-White/Grey Background */}
-      <div id="blog" className="bg-zinc-50 text-black selection:bg-black selection:text-white overflow-hidden relative border-t border-zinc-100">
+      {/* 02. Core Section - Black Background (Moved Up) */}
+      <div id="core" className="bg-black text-white selection:bg-white selection:text-black overflow-hidden relative border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-8 md:px-20 py-24 md:py-32">
+          <motion.section 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+          >
+            <div className="flex items-center gap-4 mb-20 overflow-hidden">
+              <motion.span variants={fadeIn} className="text-zinc-500 font-mono text-xs tracking-tighter">02.</motion.span>
+              <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">Core / <span className="font-art-cn not-italic">核心身份</span></motion.h2>
+            </div>
+
+            <motion.div variants={fadeIn}>
+              {children}
+            </motion.div>
+          </motion.section>
+        </div>
+      </div>
+
+      {/* 03. Blog Section - White Background (Moved Down and Color Changed) */}
+      <div id="blog" className="bg-white text-black selection:bg-black selection:text-white overflow-hidden relative border-t border-zinc-100">
         <div className="max-w-4xl mx-auto px-6 py-32 md:py-64">
           <motion.section 
             initial="initial"
@@ -357,7 +379,7 @@ export default function HomePageClient({
             variants={stagger}
           >
             <div className="flex items-center gap-4 mb-16 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-400 font-mono text-xs tracking-tighter">02.</motion.span>
+              <motion.span variants={fadeIn} className="text-zinc-400 font-mono text-xs tracking-tighter">03.</motion.span>
               <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">Blog / <span className="font-art-cn not-italic">思考札记</span></motion.h2>
             </div>
 
@@ -365,7 +387,7 @@ export default function HomePageClient({
               {posts.map((post, idx) => (
                 <Link key={idx} href={`/blog/${post.slug}`} className="block group">
                   <motion.div variants={fadeIn} className="flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-zinc-200/50 cursor-none relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 -z-10" />
+                    <div className="absolute inset-0 bg-zinc-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 -z-10" />
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 relative z-10 px-4 md:px-0 transition-transform duration-500 group-hover:translate-x-4">
                       <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">{post.date}</span>
                       <h3 className="text-xl font-serif group-hover:italic transition-all duration-500">{post.title}</h3>
@@ -419,12 +441,12 @@ export default function HomePageClient({
         </div>
       </div>
 
-      {/* 03. Special Moment Section - Soft Dark/Grey Transition */}
-      <div className="bg-zinc-50 overflow-hidden relative border-t border-zinc-100">
+      {/* 05. Special Moment Section - Soft Dark/Grey Transition (Fifth Part) */}
+      <div id="special" className="bg-zinc-50 overflow-hidden relative border-t border-zinc-100">
         <div className="max-w-4xl mx-auto px-8 md:px-20 py-32 md:py-48 space-y-32">
           {[
             {
-              id: "03.",
+              id: "05.",
               title: "Special / 记念",
               quote: '"Adventure Begins."',
               description: "这不仅是一张明信片，更是 2025 年夏天在杭州 AdventureX 留下的足迹。艺术与代码的碰撞，从这里开始。",
@@ -478,33 +500,16 @@ export default function HomePageClient({
         </div>
       </div>
 
-      {/* 04. About Section - Black Background (Cycles back to Hero) */}
-      <div id="about" className="bg-black text-white selection:bg-white selection:text-black overflow-hidden relative">
-        <div className="max-w-4xl mx-auto px-6 py-32 md:py-64">
-          <motion.section 
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-          >
-            <div className="flex items-center gap-4 mb-16 overflow-hidden">
-              <motion.span variants={fadeIn} className="text-zinc-500 font-mono text-xs tracking-tighter">04.</motion.span>
-              <motion.h2 variants={fadeIn} className="text-3xl font-serif tracking-tight italic">About / <span className="font-art-cn not-italic">关于我</span></motion.h2>
-            </div>
-
-            <motion.div variants={fadeIn}>
-              {children}
-            </motion.div>
-          </motion.section>
-
-          {/* Footer Section in Dark Theme */}
+      {/* Footer Section in Dark Theme */}
+      <div className="bg-black text-white selection:bg-white selection:text-black overflow-hidden relative">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.footer 
             id="contact"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
-            className="mt-32 pt-24 border-t border-zinc-900"
+            className="pt-24 pb-32 border-t border-zinc-900"
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
               <div className="space-y-6">

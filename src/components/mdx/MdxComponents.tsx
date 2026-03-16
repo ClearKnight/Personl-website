@@ -76,4 +76,29 @@ export const mdxComponents = {
       <div className="text-xs text-zinc-200 leading-relaxed opacity-80">{children}</div>
     </div>
   ),
+
+  // DK Style Layout for Core
+  CoreLayout: ({ headline, children }: { headline: string, children: React.ReactNode }) => (
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start py-12">
+      <div className="md:col-span-5">
+        <h3 className="text-3xl md:text-4xl font-serif italic tracking-tight leading-tight text-white/90">
+          {headline}
+        </h3>
+      </div>
+      <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {children}
+      </div>
+    </div>
+  ),
+
+  CoreItem: ({ number, title, children }: { number: string, title: string, children: React.ReactNode }) => (
+    <div className="space-y-4">
+      <div className="text-[10px] font-mono text-white/70 uppercase tracking-widest">
+        ({number}) {title}
+      </div>
+      <div className="text-[13px] text-white/90 leading-relaxed font-light">
+        {children}
+      </div>
+    </div>
+  ),
 };

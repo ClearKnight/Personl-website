@@ -1,14 +1,13 @@
-import { getAboutContent } from "@/lib/about";
+import { getCoreContent } from "@/lib/core";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
-import { motion } from "framer-motion";
 
-export default async function AboutSection() {
-  const about = getAboutContent();
+export default async function CoreSection() {
+  const core = getCoreContent();
 
   return (
     <div className="prose prose-zinc prose-invert max-w-none prose-headings:font-serif prose-headings:italic">
-      <MDXRemote source={about.content} components={mdxComponents} />
+      <MDXRemote source={core.content} components={mdxComponents} />
     </div>
   );
 }
