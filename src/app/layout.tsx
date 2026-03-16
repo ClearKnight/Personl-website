@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Clear 晨曦",
     description: "在代码的理性与艺术的感性之间，捕捉数字世界的晨曦。",
-    url: "https://your-domain.com", // 请替换为你的真实域名
+    url: "https://clearchenxi.vercel.app/", // 请替换为你的真实域名
     siteName: "Clear 晨曦 Portfolio",
     locale: "zh_CN",
     type: "website",

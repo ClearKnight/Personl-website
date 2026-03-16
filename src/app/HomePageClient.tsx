@@ -255,8 +255,8 @@ export default function HomePageClient({
               variants={fadeIn}
               className="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 md:mb-10 tracking-tight leading-[1.1]"
             >
-              Hacker. <br /> 
-              <span className="italic text-zinc-400">Maker. Thinker.</span>
+              Strategist. <br /> 
+              <span className="italic text-zinc-400">Creator. Seeker.</span>
             </motion.h1>
             
             <motion.div 
