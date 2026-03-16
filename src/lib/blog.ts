@@ -38,6 +38,16 @@ export function getAllPosts(): BlogPost[] {
   return posts.sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 }
 
+export function getNextPrevPosts(currentSlug: string) {
+  const posts = getAllPosts();
+  const currentIndex = posts.findIndex((post) => post.slug === currentSlug);
+
+  return {
+    next: currentIndex > 0 ? posts[currentIndex - 1] : null,
+    prev: currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null,
+  };
+}
+
 export function getPostBySlug(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(BLOG_PATH, `${slug}.mdx`);

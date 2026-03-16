@@ -46,6 +46,16 @@ export function getAllWorks(): ProjectWork[] {
   return works.sort((a, b) => Number(b.year) - Number(a.year));
 }
 
+export function getNextPrevWorks(currentSlug: string) {
+  const works = getAllWorks();
+  const currentIndex = works.findIndex((work) => work.slug === currentSlug);
+
+  return {
+    next: currentIndex > 0 ? works[currentIndex - 1] : null,
+    prev: currentIndex < works.length - 1 ? works[currentIndex + 1] : null,
+  };
+}
+
 export function getWorkBySlug(slug: string): ProjectWork | null {
   try {
     const fullPath = path.join(WORKS_PATH, `${slug}.mdx`);

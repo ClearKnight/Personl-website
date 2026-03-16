@@ -238,7 +238,7 @@ export default function HomePageClient({
           >
             Clear <span className="font-art-cn not-italic text-sm md:text-base tracking-[0.3em] ml-2 md:ml-3 transition-all group-hover:italic group-hover:ml-4 opacity-70 group-hover:opacity-100">晨曦</span>
           </motion.div>
-          <motion.div variants={fadeIn} className="flex gap-4 md:gap-8 text-[10px] md:text-xs text-zinc-400 font-light uppercase tracking-widest">
+          <motion.div variants={fadeIn} className="flex gap-4 md:gap-8 text-[10px] md:text-xs text-zinc-300 font-light uppercase tracking-widest">
             <a href="#works" className="hover:text-white transition-colors py-2">Works</a>
             <a href="#blog" className="hover:text-white transition-colors py-2">Blog</a>
             <a href="#about" className="hover:text-white transition-colors py-2">About</a>
@@ -264,16 +264,16 @@ export default function HomePageClient({
               className="space-y-4 mb-8 md:mb-12"
             >
               <p className="text-zinc-400 font-art italic text-lg md:text-xl tracking-wide">Clear 晨曦</p>
-              <p className="text-zinc-500 font-light leading-relaxed text-sm md:text-lg max-w-sm">
+              <p className="text-zinc-400 font-light leading-relaxed text-sm md:text-lg max-w-sm opacity-80">
                 在理性与感性之间，捕捉数字世界的晨曦。
               </p>
             </motion.div>
             
             <motion.div variants={fadeIn}>
               <MagneticButton>
-                <button className="px-8 md:px-12 py-4 md:py-5 bg-white text-black rounded-full text-[10px] md:text-[11px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold hover:bg-zinc-200 transition-all shadow-2xl active:scale-95">
+                <a href="#contact" className="px-8 md:px-12 py-4 md:py-5 bg-white text-black rounded-full text-[10px] md:text-[11px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold hover:bg-zinc-200 transition-all shadow-2xl active:scale-95 inline-block">
                   Get in touch
-                </button>
+                </a>
               </MagneticButton>
             </motion.div>
           </div>
@@ -304,7 +304,7 @@ export default function HomePageClient({
         </div>
 
         {/* Hero Footer */}
-        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-center text-[9px] tracking-[0.4em] text-zinc-700 uppercase">
+        <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-center text-[9px] tracking-[0.4em] text-zinc-500 uppercase">
           <motion.span variants={fadeIn}>Homepage 2024-26</motion.span>
           <motion.span variants={fadeIn}>©CLEAR 2024</motion.span>
         </div>
@@ -521,7 +521,7 @@ export default function HomePageClient({
                 </motion.div>
               </div>
               
-              <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-600">
+              <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400">
                 {[
                   { name: "WeChat", onClick: () => setShowWeChat(true), icon: MessageCircle },
                   { name: "Github", href: "https://github.com/ClearKnight", icon: Github },
@@ -530,13 +530,13 @@ export default function HomePageClient({
                 ].map((social, i) => (
                   social.onClick ? (
                     <button key={i} onClick={social.onClick} className="flex items-center gap-2 group hover:text-white transition-colors cursor-none text-left uppercase">
-                      <social.icon size={12} className="opacity-50 group-hover:opacity-100" />
+                      <social.icon size={12} className="opacity-70 group-hover:opacity-100" />
                       {social.name}
                       <ArrowUpRight size={10} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                     </button>
                   ) : (
                     <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group hover:text-white transition-colors">
-                      <social.icon size={12} className="opacity-50 group-hover:opacity-100" />
+                      <social.icon size={12} className="opacity-70 group-hover:opacity-100" />
                       {social.name} 
                       <ArrowUpRight size={10} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                     </a>
@@ -546,10 +546,10 @@ export default function HomePageClient({
             </div>
             
             <div className="mt-32 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-zinc-900/50 pt-12">
-              <motion.p variants={fadeIn} className="text-[9px] font-sans tracking-[0.4em] uppercase text-zinc-800">
+              <motion.p variants={fadeIn} className="text-[9px] font-sans tracking-[0.4em] uppercase text-zinc-600">
                 DESIGNED WITH INTENT & BUILT WITH CODE. © 2024
               </motion.p>
-              <div className="flex gap-8 text-[9px] font-sans tracking-[0.2em] uppercase text-zinc-700">
+              <div className="flex gap-8 text-[9px] font-sans tracking-[0.2em] uppercase text-zinc-500">
                 <span className="opacity-50">Local Time</span>
                 <span>{mounted ? new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }) : "--:--"} HGH</span>
               </div>

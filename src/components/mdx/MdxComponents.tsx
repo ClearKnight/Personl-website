@@ -19,7 +19,7 @@ export const mdxComponents = {
     return (
       <div className={`my-8 p-6 rounded-2xl border ${bgColors[type]} flex gap-4 items-start`}>
         <div className="mt-1 shrink-0">{icons[type]}</div>
-        <div className="text-sm leading-relaxed text-zinc-700 italic font-sans not-prose">
+        <div className="text-sm leading-relaxed text-zinc-800 italic font-sans not-prose">
           {children}
         </div>
       </div>
@@ -44,7 +44,7 @@ export const mdxComponents = {
     const isInternal = href && href.startsWith("/");
     if (isInternal) {
       return (
-        <Link href={href} className="text-black font-medium underline decoration-zinc-200 underline-offset-4 hover:decoration-black transition-colors" {...props}>
+        <Link href={href} className="font-medium underline decoration-zinc-400/30 underline-offset-4 hover:decoration-current transition-colors" {...props}>
           {children}
         </Link>
       );
@@ -54,7 +54,7 @@ export const mdxComponents = {
         href={href} 
         target="_blank" 
         rel="noopener noreferrer" 
-        className="text-black font-medium underline decoration-zinc-200 underline-offset-4 hover:decoration-black transition-colors inline-flex items-center gap-1 group" 
+        className="font-medium underline decoration-zinc-400/30 underline-offset-4 hover:decoration-current transition-colors inline-flex items-center gap-1 group" 
         {...props}
       >
         {children}
@@ -70,10 +70,10 @@ export const mdxComponents = {
     </div>
   ),
 
-  Card: ({ title, children }: { title: string, children: React.ReactNode }) => (
+  Card:({ title, children }: { title: string, children: React.ReactNode }) => (
     <div className="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 group">
       <h4 className="text-sm font-serif italic mb-2 text-white/90">{title}</h4>
-      <div className="text-xs text-zinc-400 leading-relaxed">{children}</div>
+      <div className="text-xs text-zinc-300 leading-relaxed">{children}</div>
     </div>
   ),
 };

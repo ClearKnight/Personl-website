@@ -1,10 +1,32 @@
-import { getWorkBySlug, getAllWorks } from "@/lib/works";
+import { getWorkBySlug, getAllWorks, getNextPrevWorks } from "@/lib/works";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const work = getWorkBySlug(slug);
+
+  if (!work) return {};
+
+  return {
+    title: `${work.title} | Clear 晨曦`,
+    description: work.summary,
+    openGraph: {
+      title: work.title,
+      description: work.summary,
+      images: [work.image],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const works = getAllWorks();
@@ -25,6 +47,8 @@ export default async function WorkPage({
     notFound();
   }
 
+  const { next, prev } = getNextPrevWorks(slug);
+
   return (
     <main className="min-h-screen bg-white text-black selection:bg-black selection:text-white px-8 md:px-20 py-24 md:py-32">
       <div className="max-w-4xl mx-auto">
@@ -39,9 +63,9 @@ export default async function WorkPage({
 
         {/* Header Section */}
         <header className="mb-20">
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-8 gap-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-4 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
+              <div className="flex flex-wrap items-center gap-4 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
                 <span>{work.category}</span>
                 <span className="text-zinc-200">/</span>
                 <span>{work.year}</span>
@@ -55,7 +79,7 @@ export default async function WorkPage({
                   </>
                 )}
               </div>
-              <h1 className="text-5xl md:text-7xl font-serif tracking-tight leading-none italic">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif tracking-tight leading-none italic">
                 {work.title}
               </h1>
             </div>
@@ -65,9 +89,9 @@ export default async function WorkPage({
                 href={work.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-4 border border-zinc-100 rounded-full hover:bg-black hover:text-white transition-all group/link"
+                className="p-3 sm:p-4 border border-zinc-100 rounded-full hover:bg-black hover:text-white transition-all group/link shrink-0"
               >
-                <ExternalLink size={20} className="group-hover/link:scale-110 transition-transform" />
+                <ExternalLink size={18} className="group-hover/link:scale-110 transition-transform sm:w-5 sm:h-5" />
               </a>
             )}
           </div>
@@ -83,7 +107,7 @@ export default async function WorkPage({
             />
           </div>
 
-          <p className="text-2xl text-zinc-500 font-light leading-relaxed max-w-2xl">
+          <p className="text-xl sm:text-2xl text-zinc-500 font-light leading-relaxed max-w-2xl">
             {work.summary}
           </p>
         </header>
@@ -93,8 +117,31 @@ export default async function WorkPage({
           <MDXRemote source={work.content} components={mdxComponents} />
         </article>
 
+        {/* Next/Prev Navigation */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-32 py-16 border-y border-zinc-100">
+          {prev ? (
+            <Link href={`/works/${prev.slug}`} className="group space-y-4">
+              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest block">Previous Project</span>
+              <div className="flex items-center gap-4">
+                <ArrowLeft size={20} className="text-zinc-300 group-hover:-translate-x-2 transition-transform" />
+                <h4 className="text-2xl font-serif italic group-hover:underline decoration-zinc-200 underline-offset-8">{prev.title}</h4>
+              </div>
+            </Link>
+          ) : <div />}
+          
+          {next ? (
+            <Link href={`/works/${next.slug}`} className="group space-y-4 text-right">
+              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest block">Next Project</span>
+              <div className="flex items-center gap-4 justify-end">
+                <h4 className="text-2xl font-serif italic group-hover:underline decoration-zinc-200 underline-offset-8">{next.title}</h4>
+                <ArrowRight size={20} className="text-zinc-300 group-hover:translate-x-2 transition-transform" />
+              </div>
+            </Link>
+          ) : <div />}
+        </div>
+
         {/* Footer Navigation */}
-        <footer className="mt-32 pt-16 border-t border-zinc-100">
+        <footer className="mt-16 pb-16">
           <div className="flex justify-between items-center text-xs text-zinc-400 font-mono uppercase tracking-[0.2em]">
             <span>© CLEAR 2024</span>
             <Link href="/" className="hover:text-black transition-colors">Home</Link>
