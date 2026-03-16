@@ -11,6 +11,8 @@ export interface ProjectWork {
   year: string;
   image: string;
   summary: string;
+  link?: string;
+  status?: string;
   content: string;
 }
 
@@ -34,6 +36,8 @@ export function getAllWorks(): ProjectWork[] {
         year: data.year,
         image: data.image,
         summary: data.summary,
+        link: data.link,
+        status: data.status,
         content,
       };
     });
@@ -55,6 +59,8 @@ export function getWorkBySlug(slug: string): ProjectWork | null {
       year: data.year,
       image: data.image,
       summary: data.summary,
+      link: data.link,
+      status: data.status,
       content,
     };
   } catch (error) {

@@ -45,15 +45,31 @@ export default async function WorkPage({
                 <span>{work.category}</span>
                 <span className="text-zinc-200">/</span>
                 <span>{work.year}</span>
+                {work.status && (
+                  <>
+                    <span className="text-zinc-200">/</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className={`w-1 h-1 rounded-full ${work.status.toLowerCase() === 'active' ? 'bg-green-500 animate-pulse' : 'bg-zinc-300'}`} />
+                      {work.status}
+                    </span>
+                  </>
+                )}
               </div>
               <h1 className="text-5xl md:text-7xl font-serif tracking-tight leading-none italic">
                 {work.title}
               </h1>
             </div>
-            {/* Optional external link button */}
-            <button className="p-4 border border-zinc-100 rounded-full hover:bg-black hover:text-white transition-all">
-              <ExternalLink size={20} />
-            </button>
+            {/* External link button - only shows if link is provided in MDX */}
+            {work.link && (
+              <a 
+                href={work.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-4 border border-zinc-100 rounded-full hover:bg-black hover:text-white transition-all group/link"
+              >
+                <ExternalLink size={20} className="group-hover/link:scale-110 transition-transform" />
+              </a>
+            )}
           </div>
           
           {/* Main Showcase Image */}
