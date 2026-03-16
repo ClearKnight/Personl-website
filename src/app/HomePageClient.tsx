@@ -400,36 +400,47 @@ export default function HomePageClient({
                 </Link>
               ))}
             </div>
+          </motion.section>
+        </div>
+      </div>
 
-            {/* Now & Stack Section inside Blog Area for rhythm */}
-            <div className="grid md:grid-cols-2 gap-24 mt-48">
+      {/* 04. Now & Stack Section - Black Background */}
+      <div id="status" className="bg-black text-white selection:bg-white selection:text-black overflow-hidden relative border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-8 md:px-20 py-24 md:py-32">
+          <motion.section 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+          >
+            <div className="grid md:grid-cols-2 gap-24">
               <motion.section variants={stagger}>
-                <div className="flex items-center gap-3 mb-8 overflow-hidden">
-                  <Activity size={16} className="text-zinc-400" />
-                  <motion.h2 variants={fadeIn} className="text-xl font-serif italic tracking-tight">Now / <span className="font-art-cn not-italic">正在忙什么</span></motion.h2>
+                <div className="flex items-center gap-3 mb-12 overflow-hidden">
+                  <Activity size={18} className="text-white/40" />
+                  <motion.h2 variants={fadeIn} className="text-xl font-serif italic tracking-tight text-white/90">Now / <span className="font-art-cn not-italic">正在忙什么</span></motion.h2>
                 </div>
-                <ul className="space-y-4 text-sm text-zinc-600 font-light leading-relaxed">
+                <ul className="space-y-6 text-sm text-white/90 font-light leading-relaxed">
                   {NOW_ITEMS.map((item, i) => (
-                    <motion.li key={i} variants={fadeIn} className="flex gap-3 group">
-                      <span className="text-zinc-300 group-hover:text-black transition-colors">•</span> 
-                      <span className="group-hover:translate-x-1 transition-transform">{item}</span>
+                    <motion.li key={i} variants={fadeIn} className="flex gap-4 group">
+                      <span className="text-white/20 group-hover:text-white transition-colors mt-1">•</span> 
+                      <span className="group-hover:translate-x-1 transition-transform group-hover:text-white/90">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
               </motion.section>
 
               <motion.section variants={stagger}>
-                <div className="flex items-center gap-3 mb-8 overflow-hidden">
-                  <Code size={16} className="text-zinc-400" />
-                  <motion.h2 variants={fadeIn} className="text-xl font-serif italic tracking-tight">Stack / <span className="font-art-cn not-italic">技术栈</span></motion.h2>
+                <div className="flex items-center gap-3 mb-12 overflow-hidden">
+                  <Code size={18} className="text-white/40" />
+                  <motion.h2 variants={fadeIn} className="text-xl font-serif italic tracking-tight text-white/90">Stack / <span className="font-art-cn not-italic">技术栈</span></motion.h2>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {STACK_ITEMS.map((tech, idx) => (
                     <motion.span 
                       key={idx} 
                       variants={fadeIn}
-                      whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
-                      className="px-4 py-1 bg-white border border-zinc-200 rounded-full text-[11px] font-mono uppercase tracking-widest text-black/60 transition-colors duration-300"
+                      whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000", borderColor: "#fff" }}
+                      className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[11px] font-mono uppercase tracking-widest text-white/60 transition-all duration-300"
                     >
                       {tech}
                     </motion.span>
