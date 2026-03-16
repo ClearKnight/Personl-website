@@ -1,26 +1,142 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --accent: #737373;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-art: var(--font-cormorant), serif;
+  --font-art-cn: var(--font-noto-serif-sc), serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+}
+
+/* Hover state for links/buttons */
+body:has(.hover-active) .custom-cursor {
+  transform: scale(4);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+body:has(.hover-active) .custom-cursor-follower {
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: white;
+  transform-origin: 0%;
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+/* Magnetic Button Wrapper */
+.magnetic-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+::selection {
+  background: #fff;
+  color: #000;
+}
+
+/* Custom black section selection */
+.bg-black ::selection {
+  background: #fff;
+  color: #000;
+}
+
+/* Typography Overrides */
+.prose {
+  --tw-prose-body: #404040;
+  --tw-prose-headings: #000;
+  --tw-prose-links: #000;
+  --tw-prose-bold: #000;
+  --tw-prose-quotes: #000;
+  --tw-prose-quote-borders: #e5e5e5;
+  --tw-prose-hr: #f5f5f5;
+  --tw-prose-th-borders: #d4d4d4;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.prose blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25em;
+  border-left-width: 2px;
+}
+
+.bg-white ::selection {
+  background: #000;
+  color: #fff;
+}
+
+@keyframes reveal-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-reveal {
+  animation: reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
