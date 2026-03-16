@@ -257,7 +257,7 @@ export default function HomePageClient({
               className="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 md:mb-10 tracking-tight leading-[1.1]"
             >
               Strategist. <br /> 
-              <span className="italic text-zinc-400">Creator. Seeker.</span>
+              <span className="italic text-zinc-400">Creator. Writer.</span>
             </motion.h1>
             
             <motion.div 
